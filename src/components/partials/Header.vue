@@ -9,11 +9,21 @@
                 <div class="site-header-box flex w-full flex-shrink-0 items-center justify-between text-white">
                     <h1 v-if="this.$route.path === '/'" class="flex items-center flex-shrink-0">
                         <router-link to="/" class="inline-block 2xl:pl-4 2xl:pr-12 lg:pl-0 lg:pr-8" v-wave>
-                            <img class="2xl:w-40 lg:w-32" :src="require('@/assets/images/common/logo.png')" alt="Flyto" srcset="" />
+                            <img
+                                class="2xl:w-40 lg:w-32"
+                                :src="require('@/assets/images/common/logo.png')"
+                                alt="Flyto"
+                                srcset=""
+                            />
                         </router-link>
                     </h1>
                     <router-link v-else to="/" class="2xl:pl-4 2xl:pr-12 lg:pl-0 lg:pr-8" v-wave>
-                        <img class="2xl:w-40 lg:w-32" :src="require('@/assets/images/common/logo.png')" alt="Flyto" srcset="" />
+                        <img
+                            class="2xl:w-40 lg:w-32"
+                            :src="require('@/assets/images/common/logo.png')"
+                            alt="Flyto"
+                            srcset=""
+                        />
                     </router-link>
 
                     <!-- S 移动端按钮 -->
@@ -23,29 +33,30 @@
                             v-wave
                             class="border rounded flex items-center bg-transparent px-3 py-5 uppercase text-white hover:border-white hover:text-white"
                         >
-                            <svg class="ml-2 h-8 w-8 fill-current" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                            <svg
+                                class="ml-2 h-8 w-8 fill-current"
+                                viewBox="0 0 20 20"
+                                xmlns="http://www.w3.org/2000/svg"
+                            >
                                 <title>Menu</title>
                                 <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
                             </svg>
                         </button>
                     </div>
                     <el-drawer :append-to-body="true" :visible.sync="showDrawer" direction="rtl" size="50%">
-                        <chMenus @click-menu="showDrawer = false" :menuList="links" :defaultAct="$route.path" mode="vertical"></chMenus>
-                        <div class="ch-lang text-white ml-6 mt-10">
-                            <span>ENG</span>
-                            |
-                            <span class="transition-all hover:underline cursor-pointer" @click="handleClick">中文</span>
-                        </div>
+                        <chMenus
+                            @click-menu="showDrawer = false"
+                            :menuList="links"
+                            :defaultAct="$route.path"
+                            mode="vertical"
+                        ></chMenus>
                     </el-drawer>
                     <!-- E 移动端按钮 -->
-                    <h2 class="little-scroll-bar text-xl menus flex-1 flex items-center justify-center overflow-x-auto whitespace-nowrap">
+                    <h2
+                        class="little-scroll-bar text-xl menus flex-1 flex items-center justify-center overflow-x-auto whitespace-nowrap"
+                    >
                         <chMenus :menuList="links" :defaultAct="$route.path"></chMenus>
                     </h2>
-                    <div class="ch-lang ml-4 xs:hidden sm:block">
-                        <span>ENG</span>
-                        |
-                        <span class="transition-all hover:underline cursor-pointer" @click="handleClick">中文</span>
-                    </div>
                 </div>
             </div>
         </div>

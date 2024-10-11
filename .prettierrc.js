@@ -7,7 +7,7 @@
  * @Author: chad-Chen
  */
 module.exports = {
-    printWidth: 180, //超过多少换行
+    printWidth: 120, //超过多少换行
     semi: false,
     singleQuote: true,
     trailingComma: 'none',
