@@ -1,0 +1,59 @@
+<!--
+ * @Description:
+ * @Author: Chad-Chen
+-->
+
+<template>
+    <div
+        class="single-video w-full flex-col items-center rounded-md overflow-hidden shadow-md transition-shadow duration-1000 hover:shadow-lg md:flex"
+    >
+        <div class="w-full">
+            <div class="relative overflow-hidden h-auto" v-if="featImage" v-html="blog.content.rendered"></div>
+            <!-- <div class="mt-4 mb-6 w-full px-4 text-black">
+                <el-tag v-if="blog.tagName" size="small">{{ blog.tagName }}</el-tag>
+                <h2 class="truncate mt-2 text-left text-xl uppercase" :title="title">
+                    {{ title }}
+                </h2>
+            </div> -->
+        </div>
+    </div>
+</template>
+
+<script>
+import moment from 'moment'
+export default {
+    name: 'SingleBlog',
+    props: {
+        blog: {
+            type: Object,
+            default: () => ({})
+        }
+    },
+    methods: {},
+    computed: {
+        title() {
+            return this.blog?.title?.rendered
+        },
+        dateFormat() {
+            return moment(this.blog.date).format('DD-MM-YYYY')
+        },
+        featImage() {
+            return this.blog._embedded['wp:featuredmedia']
+                ? this.blog._embedded['wp:featuredmedia'][0].source_url
+                : false
+        }
+    }
+}
+</script>
+<style lang="less" scoped>
+.single-video {
+    img {
+        transition: all 1s;
+    }
+    &:hover {
+        img {
+            transform: scale(1.08);
+        }
+    }
+}
+</style>

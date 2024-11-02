@@ -8,7 +8,9 @@ import Home from '../views/index'
 import post from '../views/post/index.vue'
 import ship from '../views/ship/index.vue'
 import shipCollections from '../views/ship-collections/index.vue'
-import shipAll from '../views/ship-all/index.vue'
+import photos from '../views/photos/index.vue'
+import video from '../views/video/index.vue'
+import articles from '../views/articles/index.vue'
 import page from '../views/page/index.vue'
 export default [
     {
@@ -17,16 +19,30 @@ export default [
         component: Home
     },
     {
-        path: '/ship-all',
-        name: 'shipAll',
-        component: shipAll
+        path: '/articles',
+        name: 'articles',
+        component: articles
     },
+    {
+      path: '/photos',
+      name: 'photos',
+      component: photos
+  },
+    {
+      path: '/graphics',
+      name: 'graphics',
+      component: photos
+  },
+    {
+      path: '/video',
+      name: 'video',
+      component: video
+  },
     {
         path: '/:pageSlug',
         name: 'page',
         component: page
     },
-
     {
         path: '/category/:collectionSlug',
         name: 'shipCollections',

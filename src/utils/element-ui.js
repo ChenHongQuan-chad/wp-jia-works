@@ -36,7 +36,8 @@ import {
     Menu,
     MenuItem,
     Submenu,
-    Scrollbar
+    Scrollbar,
+    Image
 } from 'element-ui'
 
 const compList = [
@@ -63,7 +64,8 @@ const compList = [
     Menu,
     MenuItem,
     Submenu,
-    Scrollbar
+    Scrollbar,
+    Image
 ]
 export default {
     install(Vue) {

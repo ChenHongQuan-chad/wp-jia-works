@@ -4,16 +4,43 @@
 -->
 
 <template>
-    <el-menu :default-active="defaultAct" class="ch-menus" :mode="mode" :router="router" background-color="transparent" text-color="#fff" active-text-color="rgba(223, 91, 49,1)">
+    <el-menu
+        :default-active="defaultAct"
+        class="ch-menus"
+        :mode="mode"
+        :router="router"
+        background-color="transparent"
+        text-color="rgba(0, 0, 0, .8)"
+        active-text-color="rgba(0, 0, 0, .8)"
+    >
         <template v-for="(item, ind) in menuList">
-            <el-submenu popper-class="ch-submenu" :ref="item.path" :index="item.path" v-if="item.children" :key="ind" :show-timeout="100">
+            <el-submenu
+                popper-class="ch-submenu"
+                :ref="item.path"
+                :index="item.path"
+                v-if="item.children"
+                :key="ind"
+                :show-timeout="100"
+            >
                 <template slot="title">
                     <span @click="handleClick(item)">{{ item.name }}</span>
                 </template>
-                <el-menu-item @click="handleClick(it)" :index="it.path" :key="i" v-for="(it, i) in item.children">{{ it.name }}</el-menu-item>
+                <el-menu-item @click="handleClick(it)" :index="it.path" :key="i" v-for="(it, i) in item.children">
+                    {{ it.name }}
+                </el-menu-item>
             </el-submenu>
-            <el-menu-item @click="handleClick(item)" :ref="item.path" :index="item.path" v-else-if="item.id" :key="ind">{{ item.name }}</el-menu-item>
-            <el-menu-item @click="handleClick(item)" :ref="item.path" :index="item.path" v-else-if="item.path" :key="ind">{{ item.name }}</el-menu-item>
+            <el-menu-item @click="handleClick(item)" :ref="item.path" :index="item.path" v-else-if="item.id" :key="ind">
+                {{ item.name }}
+            </el-menu-item>
+            <el-menu-item
+                @click="handleClick(item)"
+                :ref="item.path"
+                :index="item.path"
+                v-else-if="item.path"
+                :key="ind"
+            >
+                {{ item.name }}
+            </el-menu-item>
         </template>
         <!--
         <el-menu-item index="3" disabled>消息中心</el-menu-item>
@@ -73,7 +100,7 @@ export default {
     background-color: transparent;
     .el-dropdown-menu__item,
     .el-menu-item {
-        font-size: 1.25rem;
+        font-size: 1rem;
         &.is-active {
             border-bottom: none !important;
         }
@@ -81,7 +108,7 @@ export default {
     .el-submenu {
         .el-submenu__title,
         .el-submenu__icon-arrow {
-            font-size: 1.25rem;
+            font-size: 1rem;
         }
         .el-submenu__title {
             background-color: transparent !important;

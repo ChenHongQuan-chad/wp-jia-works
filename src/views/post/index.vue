@@ -4,7 +4,10 @@
 -->
 <template>
     <div class="post-info">
-        <div class="mx-auto 2xl:max-w-6xl xl:max-w-6xl lg:max-w-3xl sm:max-w-2xl mt-20 mb-20 px-8 md:px-0" v-loading="loading">
+        <div
+            class="mx-auto 2xl:max-w-6xl xl:max-w-6xl lg:max-w-3xl sm:max-w-2xl mt-20 mb-20 px-8 md:px-0"
+            v-loading="loading"
+        >
             <div v-if="post">
                 <h1 class="text-4xl mb-4 text-center">{{ post.title.rendered }}</h1>
                 <div class="mb-16 flex items-center justify-center">
@@ -25,7 +28,10 @@
         <div class="bg-gray-200 py-16">
             <h3 class="mb-16 text-center text-3xl font-bold uppercase">Related Content</h3>
             <div v-loading="recentPostLoading" class="recent-wrapper">
-                <div v-if="recentBlogList.length > 0" class="mx-auto 2xl:max-w-8xl xl:max-w-6xl lg:max-w-3xl sm:max-w-2xl px-8 md:px-0">
+                <div
+                    v-if="recentBlogList.length > 0"
+                    class="mx-auto 2xl:max-w-8xl xl:max-w-6xl lg:max-w-3xl sm:max-w-2xl px-8 md:px-0"
+                >
                     <chSwiper
                         :spaceBetween="20"
                         slidesPerView="4"

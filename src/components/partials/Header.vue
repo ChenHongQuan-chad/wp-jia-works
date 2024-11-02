@@ -4,27 +4,32 @@
 -->
 <template>
     <nav class="site-header w-full z-50" :style="`height:${!isHome && isPcOrIpad ? '78px' : !isHome ? '54px' : ''}`">
-        <div class="transition-all fixed w-full" :class="[{ glasses: !isHome || scrollTop > 0 }]">
+        <div class="transition-all fixed w-full glasses">
             <div class="mx-auto flex 2xl:max-w-8xl xl:max-w-6xl lg:max-w-3xl sm:max-w-2xl flex-wrap items-center">
                 <div class="site-header-box flex w-full flex-shrink-0 items-center justify-between text-white">
                     <h1 v-if="this.$route.path === '/'" class="flex items-center flex-shrink-0">
                         <router-link to="/" class="inline-block 2xl:pl-4 2xl:pr-12 lg:pl-0 lg:pr-8" v-wave>
                             <img
-                                class="2xl:w-40 lg:w-32"
+                                class="2xl:w-28 lg:w-24"
                                 :src="require('@/assets/images/common/logo.png')"
-                                alt="Flyto"
+                                alt="jiaworks"
                                 srcset=""
                             />
                         </router-link>
                     </h1>
                     <router-link v-else to="/" class="2xl:pl-4 2xl:pr-12 lg:pl-0 lg:pr-8" v-wave>
                         <img
-                            class="2xl:w-40 lg:w-32"
+                            class="2xl:w-28 lg:w-24"
                             :src="require('@/assets/images/common/logo.png')"
-                            alt="Flyto"
+                            alt="jiaworks"
                             srcset=""
                         />
                     </router-link>
+                    <h2
+                        class="little-scroll-bar text-xl menus flex-1 flex items-center justify-end overflow-x-auto whitespace-nowrap"
+                    >
+                        <chMenus :menuList="links" :defaultAct="$route.path"></chMenus>
+                    </h2>
 
                     <!-- S 移动端按钮 -->
                     <div class="block sm:hidden">
@@ -52,11 +57,6 @@
                         ></chMenus>
                     </el-drawer>
                     <!-- E 移动端按钮 -->
-                    <h2
-                        class="little-scroll-bar text-xl menus flex-1 flex items-center justify-center overflow-x-auto whitespace-nowrap"
-                    >
-                        <chMenus :menuList="links" :defaultAct="$route.path"></chMenus>
-                    </h2>
                 </div>
             </div>
         </div>
@@ -106,44 +106,24 @@ export default {
         links() {
             return [
                 {
-                    path: '/about-us',
-                    name: 'ABOUT US'
-                },
-                {
-                    path: '/ship-all',
-                    name: 'FLEET'
-                },
-                {
                     path: '/',
-                    id: 'services',
-                    name: 'SERVICES',
-                    children: [
-                        {
-                            path: '/fleet',
-                            name: 'Ship Management'
-                        },
-                        {
-                            path: '/shipping-chartering-sector',
-                            name: 'Shipping Chartering Sector'
-                        },
-
-                        {
-                            path: '/shipping-fund-sector',
-                            name: 'Shipping Fund Sector'
-                        },
-                        {
-                            path: '/equity-investment-sector',
-                            name: 'Equity Investment Sector'
-                        }
-                    ]
+                    name: 'Home'
                 },
                 {
-                    path: '/our-value',
-                    name: 'OUR VALUE'
+                    path: '/articles',
+                    name: 'Articles'
                 },
                 {
-                    path: '/contact',
-                    name: 'CONTACT'
+                    path: '/video',
+                    name: 'Video'
+                },
+                {
+                    path: '/photos',
+                    name: 'Photos'
+                },
+                {
+                    path: '/graphics',
+                    name: 'Graphics'
                 }
             ]
         }

@@ -4,31 +4,15 @@
 -->
 
 <template>
-    <footer class="site-footer">
-        <div class="bg-primary-400 px-8 py-16 md:px-0" v-if="isShowEmail">
-            <div class="mx-auto 2xl:max-w-8xl xl:max-w-6xl lg:max-w-3xl">
-                <div class="dark-blue items-center 2xl:flex lg:block">
-                    <ul class="w-full 2xl:w-10/12 lg:w-full grid sm:grid-cols-2 xs:grid-cols-1 gap-4">
-                        <li class="text-primary-200 pr-4" v-for="(item, index) in addresses" :key="index">
-                            <span class="inline-block w-full pt-6 text-lg">{{ item.name }}</span>
-                            <span class="inline-block w-full text-base">{{ item.tel }}</span>
-                            <span class="inline-block w-full text-base">{{ item.address }}</span>
-                        </li>
-                    </ul>
-                    <div class="links w-full 2xl:w-2/12 lg:w-full 2xl:flex lg:flex 2xl:items-end 2xl:flex-col lg:flex-row lg:justify-between">
-                        <h3 class="leading-6 pt-6 text-primary-200 text-xl font-light">
-                            <logoFooter></logoFooter>
-                        </h3>
-                        <div class="img-box mt-8">
-                            <img class="w-28" :src="require('@/assets/images/common/wchat.png')" alt="" srcset="" />
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="bg-primary-500 text-sm py-4 text-center text-white">
-            <span>COPYRIGHT @ {{ new Date().getFullYear() }} 良禾集团</span>
-            <span class="pl-4">备案号：鲁ICP备19006139号-1</span>
+    <footer class="site-footer bg-gray-200 text-center">
+        <img
+            class="2xl:w-28 lg:w-24 inline-block"
+            :src="require('@/assets/images/common/logo.png')"
+            alt="jiaworks"
+            srcset=""
+        />
+        <div class="text-sm py-4">
+            <span>COPYRIGHT @ {{ new Date().getFullYear() }} JiaWorks</span>
         </div>
     </footer>
 </template>
@@ -87,7 +71,8 @@ export default {
                 {
                     name: 'SHANGHAI，CHINA',
                     tel: '+86 21 5820 8930',
-                    address: 'ROOM 1411, RUI FENG INT’L TOWER, NO.248 YANG SHU PU ROAD, HONGKOU DISTRICT, SHANGHAI, CHINA'
+                    address:
+                        'ROOM 1411, RUI FENG INT’L TOWER, NO.248 YANG SHU PU ROAD, HONGKOU DISTRICT, SHANGHAI, CHINA'
                 },
                 {
                     name: 'SINGAPORE',

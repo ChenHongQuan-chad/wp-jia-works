@@ -1,32 +1,41 @@
 @font-face {
-  font-family: 'SourceHanSansSC-Normal';
-  src: url-loader('~@/assets/fonts/SourceHanSansSC/SourceHanSansSC-Normal.eot');
-  src: url-loader('~@/assets/fonts/SourceHanSansSC/SourceHanSansSC-Normal.eot?#iefix') format('embedded-opentype'),
-    url('~@/assets/fonts/SourceHanSansSC/SourceHanSansSC-Normal.woff') format('woff'),
-    url('~@/assets/fonts/SourceHanSansSC/SourceHanSansSC-Normal.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
+    font-family: 'SourceHanSansSC-Normal';
+    src: url-loader('~@/assets/fonts/SourceHanSansSC/SourceHanSansSC-Normal.eot');
+    src: url-loader('~@/assets/fonts/SourceHanSansSC/SourceHanSansSC-Normal.eot?#iefix') format('embedded-opentype'),
+        url('~@/assets/fonts/SourceHanSansSC/SourceHanSansSC-Normal.woff') format('woff'),
+        url('~@/assets/fonts/SourceHanSansSC/SourceHanSansSC-Normal.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
 }
 
 body,
 html {
-  min-height: 100%;
-  overflow-x: hidden;
+    min-height: 100%;
+    overflow-x: hidden;
 }
 
 body {
-  -webkit-font-smoothing: antialiased;
-  color: #333;
-  font-family: SourceHanSansSC-Normal, sans-serif;
-  font-size: 16px;
-  line-height: 1.5;
-  overflow-y: auto;
-  overscroll-behavior: none;
-  // text-align: justify;
-  text-size-adjust: 100%;
+    -webkit-font-smoothing: antialiased;
+    color: #333;
+    font-family: 'SourceHanSansSC-Normal', sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    overflow-y: auto;
+    overscroll-behavior: none;
+    // text-align: justify;
+    text-size-adjust: 100%;
 }
-
+body,
+button,
+input,
+select,
+textarea {
+    font-synthesis: none;
+    -moz-font-feature-settings: 'kern'; // 让OpenType字体排版更加精致
+    -webkit-font-smoothing: antialiased; //锯齿，antialiased：字体像素级平滑,none:关闭
+    -moz-osx-font-smoothing: grayscale; //同上
+}
 html,
 body,
 div,
@@ -49,67 +58,67 @@ textarea,
 th,
 td,
 select {
-  margin: 0;
-  padding: 0;
+    margin: 0;
+    padding: 0;
 }
 
 * {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 ul,
 ol,
 li,
 i {
-  list-style: none;
+    list-style: none;
 }
 
 img {
-  border: none;
-  vertical-align: middle;
-  max-width: 100%;
-  display: block;
-  height: auto;
+    border: none;
+    vertical-align: middle;
+    max-width: 100%;
+    display: block;
+    height: auto;
 }
 
 .mobile-appear {
-  display: none;
+    display: none;
 }
 
 table {
-  border-collapse: collapse;
-  table-layout: fixed;
-  width: 100%;
-  max-width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+    width: 100%;
+    max-width: 100%;
 }
 
 input,
 textarea,
 button {
-  outline: none;
-  border: none;
+    outline: none;
+    border: none;
 }
 
 textarea {
-  resize: none;
-  overflow: auto;
+    resize: none;
+    overflow: auto;
 }
 
 a:link {
-  text-decoration: none;
+    text-decoration: none;
 }
 
 /*默认状态：未点击*/
 a:hover {
-  text-decoration: none;
+    text-decoration: none;
 }
 
 /*鼠标悬浮状态*/
 a:active {
-  text-decoration: none;
+    text-decoration: none;
 }
 
 /*点击状态*/
 a:visited {
-  text-decoration: none;
+    text-decoration: none;
 }

@@ -6,14 +6,20 @@
     <div class="page bg-gray-300" :class="`page-${pageSlug}`">
         <template v-if="allPagesLoaded">
             <div class="banner relative">
-                <h1 class="absolute hidden text-center text-4xl uppercase text-black" :class="{ hidden: pageSlug === 'about' }">
+                <h1
+                    class="absolute hidden text-center text-4xl uppercase text-black"
+                    :class="{ hidden: pageSlug === 'about' }"
+                >
                     {{ pageContent.title.rendered }}
                 </h1>
                 <div class="img-box" v-if="featImage">
                     <img :src="featImage" :alt="pageContent.title.rendered" srcset="" />
                 </div>
             </div>
-            <div class="page-content 2xl:max-w-8xl xl:max-w-6xl lg:max-w-3xl sm:max-w-2xl mx-auto py-20" v-html="pageContent.content.rendered"></div>
+            <div
+                class="page-content 2xl:max-w-8xl xl:max-w-6xl lg:max-w-3xl sm:max-w-2xl mx-auto py-20"
+                v-html="pageContent.content.rendered"
+            ></div>
         </template>
         <Loader v-else />
     </div>
@@ -37,7 +43,9 @@ export default {
             return this.page(pageSlug)
         },
         featImage() {
-            return this.pageContent._embedded['wp:featuredmedia'] ? this.pageContent._embedded['wp:featuredmedia'][0].source_url : false
+            return this.pageContent._embedded['wp:featuredmedia']
+                ? this.pageContent._embedded['wp:featuredmedia'][0].source_url
+                : false
         },
         acf() {
             return this.pageContent.acf

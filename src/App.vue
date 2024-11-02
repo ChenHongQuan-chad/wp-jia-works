@@ -12,7 +12,7 @@
         </transition>
 
         <transition name="page-transition" mode="out-in" appear>
-            <div class="site-content flex-1">
+            <div class="site-content flex-1 bg-gray-200">
                 <router-view></router-view>
             </div>
         </transition>

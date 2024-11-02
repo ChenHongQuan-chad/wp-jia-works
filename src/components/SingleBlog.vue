@@ -4,7 +4,9 @@
 -->
 
 <template>
-    <div class="single-blog w-full flex-col items-center rounded-md overflow-hidden shadow-md transition-shadow duration-1000 hover:shadow-lg md:flex md:max-w-sm">
+    <div
+        class="single-blog w-full flex-col items-center rounded-md overflow-hidden shadow-md transition-shadow duration-1000 hover:shadow-lg md:flex md:max-w-sm"
+    >
         <div @click="$router.push(`/post/${blog.slug}`)" class="w-full">
             <div class="relative overflow-hidden h-auto 2xl:max-h-sm lg:max-h-xs" v-if="featImage">
                 <img class="object-fill img-absolute transition-opacity" :src="featImage" :alt="title" srcset="" />
@@ -14,7 +16,11 @@
                 <h2 class="truncate mt-2 text-left text-xl uppercase" :title="title">
                     {{ title }}
                 </h2>
-                <p class="multiple-line text-base mt-2 w-full text-left" v-if="blog.excerpt.rendered" v-html="blog.excerpt.rendered"></p>
+                <p
+                    class="multiple-line text-base mt-2 w-full text-left"
+                    v-if="blog.excerpt.rendered"
+                    v-html="blog.excerpt.rendered"
+                ></p>
                 <div class="flex lg:items-center text-sm mt-2 lg:flex-row xs:flex-col">
                     <div class="time-box">
                         <i class="el-icon-time text-primary-400"></i>
@@ -49,7 +55,9 @@ export default {
             return moment(this.blog.date).format('DD-MM-YYYY')
         },
         featImage() {
-            return this.blog._embedded['wp:featuredmedia'] ? this.blog._embedded['wp:featuredmedia'][0].source_url : false
+            return this.blog._embedded['wp:featuredmedia']
+                ? this.blog._embedded['wp:featuredmedia'][0].source_url
+                : false
         }
     }
 }

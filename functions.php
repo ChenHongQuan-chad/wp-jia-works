@@ -55,7 +55,7 @@ function wp_rest_insert_some() { //注册要个性化的功能函数
 	);
 	// 给自定义类型添加shortCodes支持
 	register_rest_field(
-		'ship',
+		'video',
 		'content',
 		array(
 			'get_callback'    => 'do_shortcodes',
@@ -73,7 +73,7 @@ function wp_rest_insert_some() { //注册要个性化的功能函数
 		)
 	);
 	register_rest_field(
-		'ship',
+		'video',
 		'post_categories',
 		array(
 			'get_callback'    => 'wp_rest_get_categories_links', //在 posts 中展示分类&链接&ID
@@ -91,7 +91,7 @@ function wp_rest_insert_some() { //注册要个性化的功能函数
 		)
 	);
 	register_rest_field(
-		'ship',
+		'video',
 		'post_excerpt',
 		array(
 			'get_callback'    => 'wp_rest_get_plain_excerpt', //在 posts 中展示纯文本摘录
@@ -109,7 +109,7 @@ function wp_rest_insert_some() { //注册要个性化的功能函数
 		)
 	);
 	register_rest_field(
-		'ship',
+		'video',
 		'post_date',
 		array(
 			'get_callback'    => 'wp_rest_get_normal_date', //在 posts 中展示简化后的日期
@@ -128,7 +128,7 @@ function wp_rest_insert_some() { //注册要个性化的功能函数
 		)
 	);
 	register_rest_field(
-		'ship',
+		'video',
 		'blog_name',  //要注册的字段名
 		array(
 			'get_callback' => 'get_blog_name', //注册的要实现的功能函数
@@ -211,7 +211,7 @@ function get_post_meta_for_api($post) {
 }
 
 function do_shortcodes($object, $field_name, $request) {
-	WPBMap::addAllMappedShortcodes(); //添加短代码支持
+	if (class_exists('WPBMap')) WPBMap::addAllMappedShortcodes(); //添加短代码支持
 	global $post;
 	$pid = $object['id'];
 	$post = get_post($pid);
@@ -224,7 +224,8 @@ function do_shortcodes($object, $field_name, $request) {
 		$content .= $vccss;
 		$content .= '</style>';
 	}
-	$output['rendered'] = $content;
+	// wpbmap的video短代码不支持
+	$output['rendered'] = do_shortcode($content);
 	return $output;
 }
 
